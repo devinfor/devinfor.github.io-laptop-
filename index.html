@@ -113,13 +113,15 @@ max-width: 100%;
 .white{
   color:#fff;
 }
-footer{
-position: fixed;
+.footer{
 left: 0px;
 bottom: 0px;
-height:30px;
+height:60px;
 width: 100%;
 text-align: center;
+}
+.bottomDiv {
+  min-height: 10vh;
 }
   </style>
   <title>Devin Khayri Forde</title>
@@ -130,26 +132,23 @@ text-align: center;
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body style="background-color: white;">
+<body id="Top" style="background-color: white;">
   <div class="container">
   <nav class="navbar fixed-top navbar-light" style="background-color: #6484B4;">
-    <a class="navbar-brand" href="#"><img src="DKFLogo.jpg"height="auto" width="250"></a>
+    <a class="navbar-brand scrollTo" href="#Top"><img src="DKFLogo.jpg"height="auto" width="250"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link scrollTo" href="#About">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link scrollTo" href="#Resume">Resume</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Resume</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link scrollTo" href="#Contact">Contact</a>
         </li>
       </ul>
     </div>
@@ -166,7 +165,7 @@ text-align: center;
 			</div>
 </div>
 
-<div id "About" class="container-text-center">
+<div id="About" class="container-text-center">
 <div style="width: 100%; height: 30px; border-bottom: 1px solid black; text-align: center">
   <span style="font-size: 40px; font-family: 'Roboto', 'Sans-Serif'; background-color: white; padding: 0px;">
     ABOUT ME
@@ -243,7 +242,7 @@ and the psycholinguistics lab in the Psychology Department.
 
 <br>
 <br>
-<div id "Resume" class="container text-center">
+<div id="Resume" class="container text-center">
 <div style="width: 100%; height: 30px; border-bottom: 1px solid black; text-align: center">
   <span style="font-size: 40px; font-family: 'Roboto', 'Sans-Serif'; background-color: white; padding: 0px;">
     RESUME
@@ -457,8 +456,9 @@ Student Association’s commitment to the student body
 </div>
   <br>
   <br>
+</div>
 
-  <div id "Resume" class="container text-center">
+  <div id="Contact" class="container text-center">
   <div style="width: 100%; height: 30px; border-bottom: 1px solid black; text-align: center">
     <span style="font-size: 40px; font-family: 'Roboto', 'Sans-Serif'; background-color: white; padding: 0px;">
       CONTACT ME
@@ -498,12 +498,12 @@ Student Association’s commitment to the student body
 <div class="w3-container w3-xlarge btn btn-default col-sm-12 space-margin">
 <a href="mailto:devinforde@gmail.com" class="w3-button w3-black">E-Mail: <u>devinforde@gmail.com</u></a>
 </div>
-<div class="w3-container w3-xlarge btn btn-default col-sm-12 space-margin">
+<div class="w3-container w3-xlarge btn btn-default col-sm-12 space-margin bottomDiv">
 <a class="w3-button w3-black">Phone: <u>347-206-3427</u></a>
 </div>
 
 <footer class="footer white blue-background">
-  <div class=" col-sm-4 space-margin">
+  <div class=" col-sm-4 space-margin" style="padding-top: 15px;"> 
     <div class="p">
       <p>Copyright Devin Forde © 2019 </p>
   </div>
@@ -516,5 +516,20 @@ Student Association’s commitment to the student body
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $('.scrollTo').on('click', function(e) {
+    console.log(e);
+		e.preventDefault();
+		var getElem = $(this).attr('href');
+		if($(getElem).length) {
+			var getOffset = $(getElem).offset().top;
+			$('html,body').animate({
+				scrollTop: getOffset - 60
+			}, 500);
+		}
+		return false;
+	});
+
+  </script>
 </body>
 </html>
